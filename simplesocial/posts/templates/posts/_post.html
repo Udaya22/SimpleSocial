@@ -1,0 +1,26 @@
+<tr>
+    <td>
+        <div class="card" >
+            <div class="card-body">
+                <strong>{{post.user.username}}</strong>
+                {% if post.group is not None %}
+                to <strong>{{post.group}}</strong>
+                {% endif %}
+                </br>
+                <strong>{{post.created_at}}</strong>
+                <br><br><p>{{post.message}}
+                {% if post.user == user %}
+                <a text-decoration="none" href="{% url 'posts:delete' post.pk %}">Delete</a>
+                {% endif %}
+                </p>
+            </div>
+            {% if post.img %}
+            <img class="card-img-bottom" src="{{post.img.url}}" alt="image not found" width="50%" height="50%"></br></br>
+            {% endif %}
+
+        </div>
+
+    </td>
+</tr>
+
+
